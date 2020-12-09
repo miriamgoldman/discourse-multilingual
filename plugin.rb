@@ -109,7 +109,7 @@ after_initialize do
   end
   
   add_to_class(:application_controller, :set_locale) do
-    if !current_user
+    
       if SiteSetting.multilingual_guest_language_switcher != "off" && client_locale
         locale = client_locale
       elsif SiteSetting.set_locale_from_accept_language_header
@@ -117,9 +117,7 @@ after_initialize do
       else
         locale = SiteSetting.default_locale
       end
-    else
-      locale = current_user.effective_locale
-    end
+    
     
     I18n.locale = locale ? locale : SiteSettings::DefaultsProvider::DEFAULT_LOCALE
     I18n.ensure_all_loaded!
