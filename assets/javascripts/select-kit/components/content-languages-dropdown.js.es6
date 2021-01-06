@@ -15,7 +15,7 @@ export default DropdownSelectBox.extend({
   },
   
   didInsertElement() {
-    if (!this.currentUser) {
+    if (this.currentUser) {
       this.selectKit.options.set('filterable', true);
     }
   },
@@ -25,7 +25,7 @@ export default DropdownSelectBox.extend({
   },
   
   modifyContent(content) {
-    if (!this.currentUser) {
+    if (this.currentUser) {
       const param = getDiscoveryParam(this, contentLanguageParam);
       let activeIndex;
         
