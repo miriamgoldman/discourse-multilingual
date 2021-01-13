@@ -11,7 +11,7 @@ export default {
   shouldRender(attrs, ctx) {
     return ctx.siteSettings.multilingual_enabled &&
       ctx.siteSettings.multilingual_content_languages_enabled &&
-      (this.currentUser || getRouter(ctx).currentRouteName.indexOf('categories') === -1);
+      (getRouter(ctx).currentRouteName.indexOf('categories') === -1);
   },
   
   setupComponent(attrs, ctx) {

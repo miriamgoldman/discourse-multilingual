@@ -15,9 +15,9 @@ export default DropdownSelectBox.extend({
   },
   
   didInsertElement() {
-    if (this.currentUser) {
+
       this.selectKit.options.set('filterable', true);
-    }
+  
   },
   
   modifyComponentForRow() {
@@ -25,7 +25,7 @@ export default DropdownSelectBox.extend({
   },
   
   modifyContent(content) {
-    if (this.currentUser) {
+  
       const param = getDiscoveryParam(this, contentLanguageParam);
       let activeIndex;
         
@@ -42,7 +42,7 @@ export default DropdownSelectBox.extend({
       
       content.sort((a, b) => a.code.localeCompare(b.code));
       content.splice(0, 0, content.splice(activeIndex, 1)[0]);
-    }
+    
     
     return content;
   }
